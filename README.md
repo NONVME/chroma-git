@@ -1,6 +1,6 @@
 # Chroma-git
 
-Chroma-git is a Python tool for colorizing your GitHub commit heatmap. This tool generates random commits within specified date ranges, adding color highlights to your GitHub contribution map.
+Chroma-git is a Python tool for colorising your GitHub commit heatmap. This tool generates random commits within specified date ranges, adding color highlights to your GitHub contribution map.
 
 ## Features
 
@@ -13,7 +13,7 @@ Chroma-git is a Python tool for colorizing your GitHub commit heatmap. This tool
 1. Clone the repository:
 
     ```
-    git clone https://github.com/NONVME/chroma-git.git
+    git clone git@github.com:NONVME/chroma-git.git
     ```
 
 2. Navigate to the project directory:
