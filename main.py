@@ -5,7 +5,6 @@ import os
 import random
 
 
-
 @contextlib.contextmanager
 def temporary_directory_change(path):
     # Save the current working directory
@@ -28,20 +27,20 @@ def main():
     parser = argparse.ArgumentParser(description="Colorizer of your GitHub commit map")
     parser.add_argument("-s", "--start",
                         type=lambda d: datetime.datetime.strptime(d, "%Y-%m-%d").date(),
-                        help="Set a start date, format '%Y-%m-%d'")
+                        help="Set a start date, format 'Y-m-d'")
     parser.add_argument("-e", "--end",
                         type=lambda d: datetime.datetime.strptime(d, "%Y-%m-%d").date(),
-                        help="Set a end date, format '%Y-%m-%d'")
+                        help="Set a end date, format 'Y-m-d'")
     parser.add_argument("-w", "--week-depth",
                         type=int, 
                         default=1,
                         choices=[1, 2, 3, 4, 5, 6],
                         help="Set a level of week random delta")
-    parser.add_argument("-c", "--color-depth",
+    parser.add_argument("--color-depth",
                         type=int, 
                         default=2,
                         choices=[2, 3, 4, 5],
-                        help="Set a level of color hightlight in one day")
+                        help="Set a level of color highlight in one day")
     parser.add_argument("-c", "--check",
                         action="store_true",
                         help="Take a test pass")
@@ -54,10 +53,11 @@ def main():
     res_date = args.start
     if not res_date or not end:
         raise ValueError("Args --start and --end must be specified")
-    assert res_date < end, "start date shoud be early end date"
+    assert res_date < end, "start date should be earlier end date"
 
     is_check = args.check
     week_depth_lvl = args.week_depth
+    color_depth_lvl = args.color_depth
 
     project_path = args.path
     if not os.path.isdir(project_path):
@@ -66,7 +66,7 @@ def main():
 
     with temporary_directory_change(project_path):
         while res_date <= end:
-            for i in range(random.randrange(1, 3)):
+            for i in range(random.randrange(1, color_depth_lvl)):
                 git_command = f'git add . && git commit --date "{res_date}" -m "#{i} commit for {res_date}"'
                 if not is_check:
                     with open("main", "a") as file:
