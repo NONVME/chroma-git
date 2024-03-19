@@ -36,12 +36,12 @@ def main():
                         default=1,
                         choices=[1, 2, 3, 4, 5, 6],
                         help="Set a level of week random delta")
-    parser.add_argument("--color-depth",
+    parser.add_argument("-c", "--color-depth",
                         type=int, 
                         default=2,
                         choices=[2, 3, 4, 5],
                         help="Set a level of color highlight in one day")
-    parser.add_argument("-c", "--check",
+    parser.add_argument("-d", "--dry-run",
                         action="store_true",
                         help="Take a test pass")
     parser.add_argument("-p", "--path",

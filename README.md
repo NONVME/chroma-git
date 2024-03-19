@@ -37,15 +37,15 @@ python3 main.py [-h] [-s START] [-e END] [-w WEEK_DEPTH] [--color-depth COLOR_DE
 -s, --start: Set the start date for commit generation (format: 'Y-m-d').
 -e, --end: Set the end date for commit generation (format: 'Y-m-d').
 -w, --week-depth: Set the level of randomness for commit frequency within weeks.
---color-depth: Set the level of color intensity for commits in one day.
--c, --check: Run in test mode to preview commits without pushing to GitHub.
+-c, --color-depth: Set the level of color intensity for commits in one day.
+-d, --dry-run: Run in test mode to preview commits without pushing to GitHub.
 -p, --path: Set the path to the GitHub project.
 ```
 
 Example usage with --check args do nothing, only print:
 
 ```bash
-python main.py -s 2024-01-01 -e 2024-03-31 --week-depth 6 --color-depth 3 --check -p /path/to/your/github/fake-private-project
+python main.py -s 2024-01-01 -e 2024-03-31 --week-depth 6 --color-depth 3 --dry-run -p /path/to/your/github/fake-private-project
 ```
 
 ## License
